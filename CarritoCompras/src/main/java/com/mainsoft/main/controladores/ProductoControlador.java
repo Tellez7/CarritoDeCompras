@@ -37,11 +37,6 @@ public class ProductoControlador {
 		return servicioProducto.eliminar(id);
 	}
 
-	@GetMapping("/producto/{id}")
-	public Producto obtenerProducto(@PathVariable("id") long id) {
-		return servicioProducto.obtener(id);
-	}
-
 	@GetMapping(value = "/productos")
 	public List<Producto> obtenerProductos() {
 		return servicioProducto.obtener();

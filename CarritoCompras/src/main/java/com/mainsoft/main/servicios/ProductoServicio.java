@@ -44,15 +44,6 @@ public class ProductoServicio {
 		}
 	}
 
-	public Producto obtener(long id) {
-		try {
-			return productoRepositorioDAO.findById(id);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-	}
-
 	public List<Producto> obtener() {
 		try {
 			return productoRepositorioDAO.findAll();

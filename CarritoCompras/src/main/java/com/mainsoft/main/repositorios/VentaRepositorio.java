@@ -12,7 +12,5 @@ import com.mainsoft.main.entidades.Venta;
 @Repository
 public interface VentaRepositorio extends JpaRepository<Venta, Serializable> {
 
-	public Venta findById(long id);
-
 	public List<Venta> findByFecha(Date Fecha);
 }

@@ -18,7 +18,7 @@ public class DetalleVenta implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idDetalleVenta;
+	private long idDetalleVenta;
 
 	@ManyToOne
 	@JoinColumn(name = "idProducto")
@@ -31,17 +31,17 @@ public class DetalleVenta implements Serializable {
 	public DetalleVenta() {
 	}
 
-	public DetalleVenta(int idDetalleVenta, Producto producto, Venta venta) {
+	public DetalleVenta(long idDetalleVenta, Producto producto, Venta venta) {
 		this.idDetalleVenta = idDetalleVenta;
 		this.producto = producto;
 		this.venta = venta;
 	}
 
-	public int getIdDetalleVenta() {
+	public long getIdDetalleVenta() {
 		return this.idDetalleVenta;
 	}
 
-	public void setIdDetalleVenta(int idDetalleVenta) {
+	public void setIdDetalleVenta(long idDetalleVenta) {
 		this.idDetalleVenta = idDetalleVenta;
 	}
 

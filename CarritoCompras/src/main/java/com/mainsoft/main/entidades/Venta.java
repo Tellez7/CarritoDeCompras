@@ -25,7 +25,7 @@ public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idVenta;
+	private long idVenta;
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
@@ -41,18 +41,18 @@ public class Venta implements Serializable {
 	public Venta() {
 	}
 
-	public Venta(int idVenta, Date fecha, List<DetalleVenta> detalleVentas, Cliente cliente) {
+	public Venta(long idVenta, Date fecha, List<DetalleVenta> detalleVentas, Cliente cliente) {
 		this.idVenta = idVenta;
 		this.fecha = fecha;
 		this.detalleVentas = detalleVentas;
 		this.cliente = cliente;
 	}
 
-	public int getIdVenta() {
+	public long getIdVenta() {
 		return this.idVenta;
 	}
 
-	public void setIdVenta(int idVenta) {
+	public void setIdVenta(long idVenta) {
 		this.idVenta = idVenta;
 	}
 

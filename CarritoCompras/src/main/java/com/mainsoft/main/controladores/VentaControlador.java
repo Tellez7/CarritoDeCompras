@@ -27,11 +27,6 @@ public class VentaControlador {
 		return servicioVenta.crear(venta);
 	}
 
-	@GetMapping("/venta/{id}")
-	public Venta obtenerVenta(@PathVariable("id") long id) {
-		return servicioVenta.obtener(id);
-	}
-
 	@GetMapping(value = "/ventas")
 	public List<Venta> obtenerVentas() {
 		return servicioVenta.obtener();

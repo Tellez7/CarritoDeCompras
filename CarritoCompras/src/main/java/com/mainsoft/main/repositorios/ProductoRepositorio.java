@@ -10,8 +10,6 @@ import com.mainsoft.main.entidades.Producto;
 
 @Repository
 public interface ProductoRepositorio extends JpaRepository<Producto, Serializable> {
-
-	public Producto findById(long id);
 	
 	public List<Producto> findByNombre(String nombre);
 
