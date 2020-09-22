@@ -6,8 +6,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,8 +20,6 @@ import org.springframework.util.ResourceUtils;
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
-	private static final Logger LOGGER = Logger.getLogger(UsuarioServicio.class);
-
 	public static String[] obtenerDatos() throws IOException {
 		File file = ResourceUtils.getFile("classpath:usuarios.txt");
 		String content = new String(Files.readAllBytes(file.toPath()));
@@ -33,10 +29,8 @@ public class UsuarioServicio implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		PropertyConfigurator.configure("logs/login/log4j.properties");
 		String usuario = "";
 		String contrasena = "";
-		boolean usuarioExiste = false;
 		try {
 			String usuarios[] = obtenerDatos();
 			for (String us : usuarios) {
@@ -46,13 +40,7 @@ public class UsuarioServicio implements UserDetailsService {
 				if (username.equals(credenciales[0])) {
 					usuario = u;
 					contrasena = c;
-					usuarioExiste = true;
 				}
-			}
-			if (usuarioExiste) {
-				LOGGER.debug("Usuario: " + username + ". Logueo Exitoso");
-			} else {
-				LOGGER.info("Usuario: " + username + ". Datos incorrectos en el logueo");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
