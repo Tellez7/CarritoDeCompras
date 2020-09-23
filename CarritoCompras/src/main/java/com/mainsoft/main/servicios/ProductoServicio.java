@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mainsoft.main.entidades.Producto;
+import com.mainsoft.main.exception.NotFoundException;
 import com.mainsoft.main.repositorios.ProductoRepositorio;
 
 @Service
@@ -53,21 +54,15 @@ public class ProductoServicio {
 		}
 	}
 
-	public List<Producto> obtenerPorNombre(String nombre) {
+	public Producto obtenerPorID(long id) {
 		try {
-			return productoRepositorioDAO.findByNombre(nombre);
+			if (productoRepositorioDAO.findById(id) == null) {
+				throw new Exception();
+			}
+			return productoRepositorioDAO.findById(id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return null;
-		}
-	}
-
-	public List<Producto> obtenerPorPrecio(double precio) {
-		try {
-			return productoRepositorioDAO.findByPrecio(precio);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
+			throw new NotFoundException("ID de producto no encontrado");
 		}
 	}
 
