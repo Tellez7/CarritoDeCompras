@@ -1,4 +1,4 @@
-package com.mainsoft.carritocompras;
+package com.mainsoft.main.tests;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -14,12 +14,10 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.mainsoft.main.controladores.ProductoControlador;
 import com.mainsoft.main.entidades.Cliente;
 import com.mainsoft.main.entidades.Producto;
 import com.mainsoft.main.entidades.Venta;
 import com.mainsoft.main.repositorios.ClienteRepositorio;
-import com.mainsoft.main.repositorios.ProductoRepositorio;
 import com.mainsoft.main.repositorios.VentaRepositorio;
 import com.mainsoft.main.servicios.ClienteServicio;
 import com.mainsoft.main.servicios.ProductoServicio;
@@ -54,11 +52,12 @@ class CarritoComprasApplicationTests {
 		String nombre = "bebida";
 		double precio = 78000;
 		Producto mockedProducto = new Producto();
-		mockedProducto.setIdProducto(Long.parseLong("id"));
+		// mockedProducto.setIdProducto(Long.parseLong("id"));
+		mockedProducto.setIdProducto(idProducto);
 		mockedProducto.setNombre(nombre);
 		mockedProducto.setPrecio(precio);
 
-		Mockito.when(productoServicio.obtenerPorID(idProducto));
+		Mockito.when(productoServicio.obtenerPorID(idProducto)).thenReturn(mockedProducto);
 	}
 
 	@Test
@@ -73,7 +72,8 @@ class CarritoComprasApplicationTests {
 		cliente.setTelefono("9875689");
 		Date fecha = null;
 		Venta registerVenta = new Venta();
-		registerVenta.setIdVenta(Integer.parseInt("diez"));
+		// registerVenta.setIdVenta(Integer.parseInt("diez"));
+		registerVenta.setIdVenta(idVenta);
 		registerVenta.setCliente(cliente);
 		registerVenta.setFecha(fecha);
 		ventaServicio.crear(registerVenta);
