@@ -4,16 +4,7 @@
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d %t %level %c %msg %n"/>
 		</Console>
-		<File fileName="Log.log" name="FileLogin">
-			<PatternLayout pattern="%d %level %msg %n"/>
-		</File>
-		<File fileName="logsServicios/cliente/Log.log" name="FileCliente">
-			<PatternLayout pattern="%d %level %msg %n"/>
-		</File>
-		<File fileName="logsServicios/producto/Log.log" name="FileProducto">
-			<PatternLayout pattern="%d %level %msg %n"/>
-		</File>
-		<File fileName="logsServicios/venta/Log.log" name="FileVenta">
+		<File fileName="LogGeneral.log" name="FileLogin">
 			<PatternLayout pattern="%d %level %msg %n"/>
 		</File>
 	</Appenders>
@@ -21,9 +12,6 @@
 		<Root level="debug">
 			<AppenderRef ref="Console"/>
 			<AppenderRef ref="FileLogin"/>
-			<AppenderRef ref="FileCliente"/>
-			<AppenderRef ref="FileProducto"/>
-			<AppenderRef ref="FileVenta"/>
 		</Root>
 	</Loggers>
 </Configuration>

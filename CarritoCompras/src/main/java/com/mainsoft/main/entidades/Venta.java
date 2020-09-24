@@ -2,15 +2,14 @@ package com.mainsoft.main.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,12 +26,10 @@ public class Venta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idVenta;
 
+	@Column(nullable = false)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
-
-	@OneToMany(mappedBy = "venta")
-	private List<DetalleVenta> detalleVentas;
 
 	@ManyToOne
 	@JoinColumn(name = "idCliente")
@@ -41,10 +38,9 @@ public class Venta implements Serializable {
 	public Venta() {
 	}
 
-	public Venta(long idVenta, Date fecha, List<DetalleVenta> detalleVentas, Cliente cliente) {
+	public Venta(long idVenta, Date fecha, Cliente cliente) {
 		this.idVenta = idVenta;
 		this.fecha = fecha;
-		this.detalleVentas = detalleVentas;
 		this.cliente = cliente;
 	}
 
@@ -62,28 +58,6 @@ public class Venta implements Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
-	}
-
-	public List<DetalleVenta> getDetalleventas() {
-		return this.detalleVentas;
-	}
-
-	public void setDetalleventas(List<DetalleVenta> detalleventas) {
-		this.detalleVentas = detalleventas;
-	}
-
-	public DetalleVenta addDetalleventa(DetalleVenta detalleventa) {
-		getDetalleventas().add(detalleventa);
-		detalleventa.setVenta(this);
-
-		return detalleventa;
-	}
-
-	public DetalleVenta removeDetalleventa(DetalleVenta detalleventa) {
-		getDetalleventas().remove(detalleventa);
-		detalleventa.setVenta(null);
-
-		return detalleventa;
 	}
 
 	public Cliente getCliente() {

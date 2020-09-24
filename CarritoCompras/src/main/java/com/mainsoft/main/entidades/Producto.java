@@ -1,13 +1,12 @@
 package com.mainsoft.main.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,21 +19,18 @@ public class Producto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProducto;
 
+	@Column(nullable = false)
 	private String nombre;
 
 	private double precio;
 
-	@OneToMany(mappedBy = "producto")
-	private List<DetalleVenta> detalleVentas;
-
 	public Producto() {
 	}
 
-	public Producto(long idProducto, String nombre, int precio, List<DetalleVenta> detalleVentas) {
+	public Producto(long idProducto, String nombre, int precio) {
 		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.precio = precio;
-		this.detalleVentas = detalleVentas;
 	}
 
 	public long getIdProducto() {
@@ -59,28 +55,6 @@ public class Producto implements Serializable {
 
 	public void setPrecio(double precio) {
 		this.precio = precio;
-	}
-
-	public List<DetalleVenta> getDetalleventas() {
-		return this.detalleVentas;
-	}
-
-	public void setDetalleventas(List<DetalleVenta> detalleVentas) {
-		this.detalleVentas = detalleVentas;
-	}
-
-	public DetalleVenta addDetalleventa(DetalleVenta detalleVenta) {
-		getDetalleventas().add(detalleVenta);
-		detalleVenta.setProducto(this);
-
-		return detalleVenta;
-	}
-
-	public DetalleVenta removeDetalleventa(DetalleVenta detalleVenta) {
-		getDetalleventas().remove(detalleVenta);
-		detalleVenta.setProducto(null);
-
-		return detalleVenta;
 	}
 
 }

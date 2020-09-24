@@ -22,43 +22,47 @@ public class DetalleVenta implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "idProducto")
-	private Producto producto;
+	private Producto idProducto;
 
 	@ManyToOne
 	@JoinColumn(name = "idVenta")
-	private Venta venta;
+	private Venta idVenta;
 
 	public DetalleVenta() {
 	}
 
-	public DetalleVenta(long idDetalleVenta, Producto producto, Venta venta) {
+	public DetalleVenta(long idDetalleVenta, Producto idProducto, Venta idVenta) {
 		this.idDetalleVenta = idDetalleVenta;
-		this.producto = producto;
-		this.venta = venta;
+		this.idProducto = idProducto;
+		this.idVenta = idVenta;
 	}
 
 	public long getIdDetalleVenta() {
-		return this.idDetalleVenta;
+		return idDetalleVenta;
 	}
 
 	public void setIdDetalleVenta(long idDetalleVenta) {
 		this.idDetalleVenta = idDetalleVenta;
 	}
 
-	public Producto getProducto() {
-		return this.producto;
+	public Producto getIdProducto() {
+		return idProducto;
 	}
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setIdProducto(Producto idProducto) {
+		this.idProducto = idProducto;
 	}
 
-	public Venta getVenta() {
-		return this.venta;
+	public Venta getIdVenta() {
+		return idVenta;
 	}
 
-	public void setVenta(Venta venta) {
-		this.venta = venta;
+	public void setIdVenta(Venta idVenta) {
+		this.idVenta = idVenta;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

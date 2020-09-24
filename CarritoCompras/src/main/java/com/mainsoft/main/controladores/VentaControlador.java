@@ -1,10 +1,8 @@
 package com.mainsoft.main.controladores;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mainsoft.main.entidades.Venta;
 import com.mainsoft.main.servicios.VentaServicio;
+
+import rx.Observable;
+import rx.Subscription;
 
 @RestController
 @RequestMapping("/v1")
@@ -32,9 +33,8 @@ public class VentaControlador {
 		return servicioVenta.obtener();
 	}
 
-	@GetMapping(value = "/venta/{fecha}")
-	public List<Venta> obtenerVentasPorFecha(
-			@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("nombre") Date fecha) {
-		return servicioVenta.obtenerPorFecha(fecha);
+	@GetMapping("/venta/{idVenta}")
+	private Subscription obtenerDetalleVentaPorIDVenta(@PathVariable long idVenta) {
+		return Observable.just(servicioVenta.obtenerDetalleVenta(idVenta)).subscribe();
 	}
 }
