@@ -7185,3 +7185,33 @@ java.lang.Exception: exception just for purpose of providing stack trace
 2020-09-24 02:17:11,371 DEBUG HikariPool-2 - Fill pool skipped, pool is at sufficient level. 
 2020-09-24 02:17:41,372 DEBUG HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0) 
 2020-09-24 02:17:41,372 DEBUG HikariPool-2 - Fill pool skipped, pool is at sufficient level. 
+2020-09-24 02:18:11,373 DEBUG HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0) 
+2020-09-24 02:18:11,373 DEBUG HikariPool-2 - Fill pool skipped, pool is at sufficient level. 
+2020-09-24 02:18:17,849 INFO Application shutdown requested. 
+2020-09-24 02:18:17,849 DEBUG Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@67bd866c, started on Thu Sep 24 02:10:40 COT 2020 
+2020-09-24 02:18:17,850 DEBUG Stopping beans in phase 2147483647 
+2020-09-24 02:18:17,850 DEBUG Bean 'webServerGracefulShutdown' completed its stop procedure 
+2020-09-24 02:18:17,850 DEBUG Stopping beans in phase 2147483646 
+2020-09-24 02:18:17,903 DEBUG Bean 'webServerStartStop' completed its stop procedure 
+2020-09-24 02:18:17,906 DEBUG Unregistering JMX-exposed beans on shutdown 
+2020-09-24 02:18:17,906 DEBUG Unregistering JMX-exposed beans 
+2020-09-24 02:18:17,909 INFO Closing JPA EntityManagerFactory for persistence unit 'default' 
+2020-09-24 02:18:17,909 DEBUG HHH000031: Closing 
+2020-09-24 02:18:17,909 DEBUG Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@aff96d0] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@4f8199a5] 
+2020-09-24 02:18:17,909 DEBUG Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries 
+2020-09-24 02:18:17,910 DEBUG Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries 
+2020-09-24 02:18:17,910 INFO Shutting down ExecutorService 'applicationTaskExecutor' 
+2020-09-24 02:18:17,910 INFO HikariPool-2 - Shutdown initiated... 
+2020-09-24 02:18:17,910 DEBUG HikariPool-2 - Before shutdown stats (total=10, active=0, idle=10, waiting=0) 
+2020-09-24 02:18:17,911 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5b75da6c: (connection evicted) 
+2020-09-24 02:18:17,912 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2997ccc1: (connection evicted) 
+2020-09-24 02:18:17,913 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@68aac6fa: (connection evicted) 
+2020-09-24 02:18:17,913 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5908eb82: (connection evicted) 
+2020-09-24 02:18:17,914 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@88539b5: (connection evicted) 
+2020-09-24 02:18:17,914 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@ccb4599: (connection evicted) 
+2020-09-24 02:18:17,915 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4781c20d: (connection evicted) 
+2020-09-24 02:18:17,915 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@28e394fb: (connection evicted) 
+2020-09-24 02:18:17,916 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@24322a6f: (connection evicted) 
+2020-09-24 02:18:17,917 DEBUG HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@79703d82: (connection evicted) 
+2020-09-24 02:18:17,918 DEBUG HikariPool-2 - After shutdown stats (total=0, active=0, idle=0, waiting=0) 
+2020-09-24 02:18:17,919 INFO HikariPool-2 - Shutdown completed. 
